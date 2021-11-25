@@ -95,6 +95,7 @@ As already explained in __robot_controller_node__ section, `a` and `d` keys will
 The last valid key that user can press is the `q` one and it is just used for closing the node.
 
 I created a short video that shows what I have just explained:
+
 https://user-images.githubusercontent.com/91267789/143507422-f884c264-8345-49d1-a5d5-e1443cad5e2c.mp4
 
 __rqt_graph command__
