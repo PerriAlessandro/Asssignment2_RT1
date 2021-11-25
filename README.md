@@ -1,4 +1,4 @@
-__Research Track 1  -  Second Assignment__ ![icons8-c++-48](https://user-images.githubusercontent.com/91267789/143508265-fbc8e814-ea9e-4402-8329-f2d14620f230.png)"
+__Research Track 1  -  Second Assignment__ ![icons8-c++-48](https://user-images.githubusercontent.com/91267789/143508265-fbc8e814-ea9e-4402-8329-f2d14620f230.png)
 ================================
 
 This assignment is based on a simple robot simulator developed using ROS (Robot Operating System), an open-source, meta-operating system designed for controlling a robot.
