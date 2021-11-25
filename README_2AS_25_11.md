@@ -14,7 +14,7 @@ The project aimed to implement a ROS package in which we had to manage the behav
 
 The circuit is a simple _.png_ file that represents the real Monza's circuit, here's a screenshot of what the user will see once he runs the `/stageros` node:
 <p align="center">
-	<img src="https://github.com/PerriAlessandro/second_assignment/blob/main/images%20and%20videos/circuit.jpeg" height=817 width=1035>
+	<img src="https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/circuit.jpeg" height=817 width=1035>
 </p>
 
 
@@ -75,13 +75,13 @@ To properly drive the robot around the circuit, the values of that Vector I used
 From each of those sub-arrays I found the lowest value and then I started comparing them to implement the logic that makes the robot move. Here you can find a flowchart concerning the logic I have used:
 
 <p align="center">
-	<img src="https://github.com/PerriAlessandro/second_assignment/blob/main/images%20and%20videos/driveCallback_flowchart.png" height=863 width=1597>
+	<img src="https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/driveCallback_flowchart.png" height=863 width=1597>
 </p>
 
 The result seems satisfactory, i created a short video that shows the movement of the robot in the hardest corner of the circuit:
 
 <p align="center">
-	<img src="https://github.com/PerriAlessandro/second_assignment/blob/main/images%20and%20videos/corner.mp4" height=698 width=864>
+	<img src="https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/corner.mp4" height=698 width=864>
 </p>
 
 ### __UI_node__ ###
@@ -104,12 +104,12 @@ $ rqt_graph
 __NOTE__: this command works properly only if all nodes are running
 
 <p align="center">
- <img src="https://github.com/PerriAlessandro/second_assignment/blob/main/images%20and%20videos/rqt_graph.jpeg" height=555 width=1831>
+ <img src="https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/rqt_graph.jpeg" height=555 width=1831>
 </p>
 
 As you can see, using this command you are not able to see what `UI_node` node actually does. That is because it doesn't provide the graphic visualization of services. For this reason I modified the resulting graph by adding the services that have been used, here's the result:
 <p align="center">
- <img src="https://github.com/PerriAlessandro/second_assignment/blob/main/images%20and%20videos/rqt_graph.jpeg" height=555 width=1831>
+ <img src="https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/rqt_graph.jpeg" height=555 width=1831>
 </p>
 
 
