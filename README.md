@@ -7,8 +7,8 @@ This assignment is based on a simple robot simulator developed using ROS (Robot 
 __Aim of the project__
 ----------------------
 The project aimed to implement a ROS package in which we had to manage the behavior of a robot. Specifically, the robot must be able to lap around the circuit and receive commands from the user via keyboard input. Here's a list of commands (e.g. keyboard keys) the user can use to control the robot:
-- `a`: increases the speed of the robot, every time 'a' key is pressed __the velocity is doubled up__;
-- `d`: decreases the speed of the robot, every time 'd' key is pressed __the velocity is halved__;
+- `a`: increases the speed of the robot, every time '__a__' key is pressed __the velocity is doubled up__;
+- `d`: decreases the speed of the robot, every time '__d__' key is pressed __the velocity is halved__;
 - `r`: __resets the position__ of the robot and sets the velocity to the original one (e.g. equals to 1).
 - `q`: __quits__ the nodes in the current package(additional).
 
@@ -29,7 +29,7 @@ The simulator requires _ROS Noetic_ system. Once downloaded, open a terminal and
 $ catkin_make #properly build the workspace
 ```
 Now you have to launch all the nodes, here's a list of the needed nodes to properly run the project:
-- `Master Node`: provides naming and registration to the rest of the nodes in the ROS system
+- `Master`: provides naming and registration to the rest of the nodes in the ROS system
 - `stage_ros`: The stage_ros node wraps the Stage 2-D multi-robot simulator, via libstage. Stage simulates a world as defined in a .world file. This file tells stage everything about the world, from obstacles (usually represented via a bitmap to be used as a kind of background), to robots and other objects.
 - `robot_controller`: implements the logic of the navigation inside the circuit and provides a service that changes the speed of the robot.
 - `UI_node`: User Interface node, used for receiving commands via keyboard input.
@@ -59,18 +59,18 @@ In the _src_ folder of the package you will find two _.cpp_ files, __controller.
 ### __robot_controller_node__ ###
 This node is the one that allows the robot to lap around the circuit. To do that, it makes a subscription to `/base_scan` topic, published by `stageros` node, whose message type is `sensor_msgs/LaserScan.msg`. In our case, we're interested to the __ranges[]__ Vector that contains, in the i-th position, the distance from the wall of the i-th laser (721 elements) in a range of 180 degrees. As you can imagine, these values are key elements for the robot's movement as they allow it to be aware of the obstacles surrounding it and consequently move in the appropriate direction. For this reason, the logic with which the robot decides to move is implemented directly in the callback function (__driveCallback__) that is invoked every time a new message of this type is published. This function also implements a _Publisher_ for the `/cmd_vel` topic, in which you can publish messages of type `geometry_msgs/Twist.msg` to make the robot move. The fields of this message consist of six _float32_ variables representing _linear_ and _angular_ velocity along the three axis _x_,_y_ and _z_.
 This node also implements a server for the service that manages the user inputs designed for changing the velocity (e.g. 'a' and 'd' keys, respectively for accelerating and decelerating). Every time user types one of those two keys from the shell where UI_node is running, it makes a request for the `/changeVel` service. The structure of this service is:
-- Request: char input
-- Response: float32 multiplier
+- __Request__: char `input`
+- __Response__: float32 `multiplier`
 
-If the input corresponds to the char ‘a’, the response will be such as to double the speed, if the input corresponds to the char ‘d’, the response will be such as to halve the speed
+If the input corresponds to the char ‘__a__’, the response will be such as to double the speed, if the input corresponds to the char ‘__d__’, the response will be such as to halve the speed.
 
-#### driveCallback ####
+#### driveCallback function ####
 As already explained before, this function retrieves information from `/base_scan` topic and publishes to `/cmd_vel` topic to make the robot move. 
 The `LaserScan.msg` contains a lot of information, but the most important one is __ranges[]__ Vector from which you are able to get the distances from the wall for each of 721 lasers (i-th laser corresponds to i-th position in the Vector). 
 To properly drive the robot around the circuit, the values of that Vector I used are related to the lateral and frontal distances:
-- right distances: ca. 120 values (from index 0 to 120 of ranges[]) --> ca. 30 degrees
-- frontal distances: ca. 60 values (from index 330 to 390 of ranges[]) --> ca. 15 degrees
-- left distances: ca. 120 values (from index 600 to 720 of ranges[]) --> ca. 30 degrees
+- __right distances__: ca. 120 values (from index 0 to 120 of __ranges[ ]__) __-->__ ca. 30 degrees
+- __frontal distances__: ca. 60 values (from index 330 to 390 of __ranges[ ]__) __-->__ ca. 15 degrees
+- __left distances__: ca. 120 values (from index 600 to 720 of __ranges[ ]__) __-->__ ca. 30 degrees
 
 From each of those sub-arrays I found the lowest value and then I started comparing them to implement the logic that makes the robot move. Here you can find a flowchart concerning the logic I have used:
 
