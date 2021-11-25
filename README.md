@@ -81,7 +81,7 @@ From each of those sub-arrays I found the lowest value and then I started compar
 The result seems satisfactory, i created a short video that shows the movement of the robot in the hardest corner of the circuit:
 
 <p align="center">
-	<source src="https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/corner.gif">
+	<img src="https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/corner.gif">
 </p>
 
 ### __UI_node__ ###
