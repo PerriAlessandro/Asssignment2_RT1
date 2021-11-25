@@ -94,6 +94,9 @@ As already explained in __robot_controller_node__ section, `a` and `d` keys will
 
 The last valid key that user can press is the `q` one and it is just used for closing the node.
 
+I created a short video that shows what I have just explained:
+https://user-images.githubusercontent.com/91267789/143507422-f884c264-8345-49d1-a5d5-e1443cad5e2c.mp4
+
 __rqt_graph command__
 ----------------------
 The `rqt_graph` command provides a GUI plugin for visualizing the ROS computation graph. It is useful to have an immediate comprehension of how nodes and related topics work together. In this case, the resulting graph is fairly simple because there are only three nodes (represented as elliptical boxes) and two topics (represented as rectangular boxes).
