@@ -86,7 +86,7 @@ The result seems satisfactory, i created a short video that shows the movement o
 
 ### __UI_node__ ###
 
-This node is the executable of _UI.cpp_ file, it is used for receiving inputs from the keyboard, you can find a list of them [here](link). The code related to this node is actually pretty simple, the program constantly waits for user input and when a proper key is pressed, clients make a request for the service used to handle that command. More precisely, it has been sufficient to create two clients that make use of these two services, respectively:
+This node is the executable of _UI.cpp_ file, it is used for receiving inputs from the keyboard, you can find a list of the command [here](https://github.com/PerriAlessandro/second_assignment#aim-of-the-project). The code related to this node is actually pretty simple, the program constantly waits for user input and when a proper key is pressed, clients make a request for the service used to handle that command. More precisely, it has been sufficient to create two clients that make use of these two services, respectively:
 - `/changeVel`: changes the velocity of the robot (server is located in __robot_controller_node__), __keys__: `a`, `d`, `r`;
 - `/reset_positions`: resets the position of the robot, __keys__: `r`;
 
@@ -107,9 +107,9 @@ __NOTE__: this command works properly only if all nodes are running
  <img src="https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/rqt_graph.jpeg">
 </p>
 
-As you can see, using this command you are not able to see what `UI_node` node actually does. That is because it doesn't provide the graphic visualization of services. For this reason I modified the resulting graph by adding the services that have been used, here's the result:
+As you can see, using this command you are not able to see what `UI_node` node actually does. That is because it doesn't provide the graphic visualization of services. For this reason I modified the resulting graph by adding the used services, here's the result:
 <p align="center">
- <img src="https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/rqt_graph.jpeg">
+ <img src="https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/UI_inputs.gif">
 </p>
 
 
