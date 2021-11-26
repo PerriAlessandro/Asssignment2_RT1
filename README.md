@@ -1,4 +1,4 @@
-__Research Track 1  -  Second Assignment__ [](https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/c.svg) ![roslogo](https://user-images.githubusercontent.com/91267789/143508978-b8484fa4-f970-4f0d-831f-0e58df470d0f.png)
+__Research Track 1  -  Second Assignment__ (https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/c.svg) ![roslogo](https://user-images.githubusercontent.com/91267789/143508978-b8484fa4-f970-4f0d-831f-0e58df470d0f.png)
 ================================
 
 This assignment is based on a simple robot simulator developed using ROS (Robot Operating System), an open-source, meta-operating system designed for controlling a robot.
