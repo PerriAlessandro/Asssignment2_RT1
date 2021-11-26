@@ -113,7 +113,7 @@ __NOTE__: this command works properly only if all nodes are running
 
 As you can see, using this command you are not able to see what `UI_node` node actually does. That is because it doesn't provide the graphic visualization of services. For this reason I modified the resulting graph by adding the used services, here's the result:
 <p align="center">
- <img src="https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/UI_inputs.gif">
+ <img src="https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/rqt_graph_services.jpeg">
 </p>
 
 
