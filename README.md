@@ -34,6 +34,20 @@ Now you have to launch all the nodes, here's a list of the needed nodes to prope
 - `robot_controller`: implements the logic of the navigation inside the circuit and provides a service that changes the speed of the robot.
 - `UI_node`: User Interface node, used for receiving commands via keyboard input.
 
+To properly run the simulator, I wrote a _.launch_ file (__run.launch__) that automatically launches all the nodes, it requires a terminal emulator called `xterm`, so if you haven't installed yet on your PC just run:
+
+```bash
+$ sudo apt-get install xterm
+```
+ After the emulator has been installed, run:
+ 
+```bash
+$ roslaunch  second_assignment run.launch
+```
+At this point two different windows should open, the first contains the simulator and the other one contains the UI (i.e. __UI_node__).
+
+__ALTERNATIVELY__ you can simply launch the nodes one by one:
+
 
 First of all, you need to launch the master node:
 ```bash
