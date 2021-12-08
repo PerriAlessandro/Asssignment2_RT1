@@ -1,4 +1,4 @@
-__Research Track 1  -  Second Assignment__ (https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/c.svg) ![roslogo](https://user-images.githubusercontent.com/91267789/143508978-b8484fa4-f970-4f0d-831f-0e58df470d0f.png)
+__Research Track 1  -  Second Assignment__ ![roslogo](https://user-images.githubusercontent.com/91267789/143508978-b8484fa4-f970-4f0d-831f-0e58df470d0f.png) (https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/c.svg) 
 ================================
 
 This assignment is based on a simple robot simulator developed using ROS (Robot Operating System), an open-source, meta-operating system designed for controlling a robot.
@@ -10,7 +10,7 @@ The project aimed to implement a ROS package in which we had to manage the behav
 - `a`: increases the speed of the robot, every time '__a__' key is pressed __the velocity is doubled up__;
 - `d`: decreases the speed of the robot, every time '__d__' key is pressed __the velocity is halved__;
 - `r`: __resets the position__ of the robot and sets the velocity to the original one (e.g. equals to 1).
-- `q`: __quits__ the nodes in the current package(additional).
+- `q`: __quits__ the nodes in the current package.
 
 The circuit is a simple _.png_ file that represents the real Monza's circuit, here's a screenshot of what the user will see once he runs the `/stageros` node:
 <p align="center">
@@ -45,6 +45,7 @@ $ sudo apt-get install xterm
 $ roslaunch  second_assignment run.launch
 ```
 At this point two different windows should open, the first contains the simulator and the other one contains the UI (i.e. __UI_node__).
+Using this method, when you press `q` all active nodes will be closed.
 
 __ALTERNATIVELY__ you can simply launch the nodes one by one:
 
