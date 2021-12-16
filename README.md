@@ -1,4 +1,4 @@
-__Research Track 1  -  Second Assignment__ ![roslogo](https://user-images.githubusercontent.com/91267789/143508978-b8484fa4-f970-4f0d-831f-0e58df470d0f.png) (https://github.com/PerriAlessandro/second_assignment/blob/master/images%20and%20videos/c.svg) 
+__Research Track 1  -  Second Assignment__ ![roslogo](https://user-images.githubusercontent.com/91267789/143508978-b8484fa4-f970-4f0d-831f-0e58df470d0f.png) 
 ================================
 
 This assignment is based on a simple robot simulator developed using ROS (Robot Operating System), an open-source, meta-operating system designed for controlling a robot.
@@ -132,7 +132,10 @@ As you can see, using this command you are not able to see what `UI_node` node a
 </p>
 
 
+__Possible Improvements and Personal Considerations__
+----------------------
 
+There are several ways to implement a logic that makes the robot move, I decided to use almost the same logic of the previous assignment because it seems working well enough, the robot never crashes if the speed is low (i.e. within 4.0) but if I increase the speed too much it may crash or change direction. The reason could be that the three areas checked by the algorithm to control the movement (i.e. frontal, right and left) have blind spots on the front-left and front-right portions of the field of view, __BUT__ I noticed that if I run the project on a computer with native Ubuntu it generally works much better (I'm actually using Oracle Virtual Machine).
 
 
 
