@@ -1,39 +1,41 @@
 #include "ros/ros.h"
 #include "second_assignment/ChangeVel.h"
-#include "std_srvs/Empty.h" //std_srvs contains two service types called Empty and Trigger, which are common
-//service patterns for sending a signal to a ROS node. For the Empty service, no actual data is exchanged
-//between the service and the client. The Trigger service adds the possibility to check if triggering was successful or not.
+#include "std_srvs/Empty.h"
 
+// ANSI colors
 #define RESET "\033[0m"
-
-#define BHBLK "\e[1;90m"
 #define BHRED "\e[1;91m"
 #define BHGRN "\e[1;92m"
 #define BHYEL "\e[1;93m"
 #define BHBLU "\e[1;94m"
-#define BHMAG "\e[1;95m"
 #define BHCYN "\e[1;96m"
-#define BHWHT "\e[1;97m"
 
 int main(int argc, char **argv)
 {
-	ros::init(argc, argv, "UI_node"); //initialization of the node
+	// initialization of the node
+	ros::init(argc, argv, "UI_node");
 	ros::NodeHandle nh;
+	// declare ServiveClient object
 	ros::ServiceClient client = nh.serviceClient<second_assignment::ChangeVel>("/changeVel");
+	// declare the object that contains the request and the response of the service used to change the velocity
 	second_assignment::ChangeVel srv1;
+	// declare the empty service used to reset the position
 	std_srvs::Empty reset_srv;
 
 	std::cout << BHCYN "\n ################################## USER INTERFACE ################################## \n\n " RESET;
 	std::cout << BHCYN "Press 'a' to accelerate, press 'd' to decelerate, 'r' to reset position, 'q' to quit \n " RESET;
 	char c;
 
+	// while loop used to receive keyboard input by user
 	while (c != 'q')
 	{
+		// waiting for a keyboard input
 		std::cin.clear();
 		std::cin >> c;
 
 		switch (c)
 		{
+			// if user presses 'a', a request is sent to the server 'srv1' and the robot will accelerate
 		case 'a':
 		{
 			std::cout << BHBLU "The robot is accelerating!" RESET "\n";
@@ -43,7 +45,7 @@ int main(int argc, char **argv)
 			std::cout << BHCYN "Current speed: " << srv1.response.multiplier << "\n " RESET;
 			break;
 		}
-
+			// if user presses 'd', a request is sent to the server 'srv1' and the robot will decelerate
 		case 'd':
 		{
 			std::cout << BHYEL "The robot is decelerating!" RESET "\n";
@@ -53,20 +55,22 @@ int main(int argc, char **argv)
 			std::cout << BHCYN "Current speed: " << srv1.response.multiplier << "\n " RESET;
 			break;
 		}
-
+			// if user presses 'r', a request is sent to the server 'srv1' and the robot will reset the speed to 1.0,
+			//  moreover, another service  that resets the position is called
 		case 'r':
 		{
 			std::cout << BHGRN "RESET POSITION (AND SPEED)" RESET "\n";
 			srv1.request.input = 'r';
 			client.waitForExistence();
 			client.call(srv1);
-			ros::service::call("/reset_positions",reset_srv);
+			ros::service::call("/reset_positions", reset_srv);
 			std::cout << BHCYN "Current speed: " << srv1.response.multiplier << "\n " RESET;
 			break;
 		}
+
+		// if user presses 'q', nothing happens and the program exits from the while loop
 		case 'q':
 			break;
-
 		default:
 			std::cout << BHRED "No existing command! Retry.." RESET "\n";
 			std::cout << BHCYN "Press 'a' to accelerate, press 'd' to decelerate, 'r' to reset position, 'q' to quit \n " RESET;
@@ -76,13 +80,3 @@ int main(int argc, char **argv)
 	std::cout << BHRED "QUIT" RESET "\n";
 	return 0;
 }
-
-/*ServiceServer ros::NodeHandle::advertiseService ( const std::string & service,
-bool(T::*)(MReq &, MRes &) srv_func,
-T * obj
-)
-
-\param service Service name to advertise on
- \param srv_func Member function pointer to call when a message has arrived
- \param obj Object to call srv_func on
- \return On success, a ServiceServer that, when all copies of it go out of scope, will unadvertise this service.*/
