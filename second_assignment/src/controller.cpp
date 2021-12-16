@@ -80,8 +80,8 @@ void driveCallback(const sensor_msgs::LaserScan::ConstPtr &msg)
 
 			else
 			{ // the two lateral distances are too similar, better to go forward while turning
-				my_vel.linear.x = 1.0;
-				my_vel.angular.z = -1.0;
+				my_vel.linear.x = 0.1;
+				my_vel.angular.z = -2.0;
 			}
 		}																		 // if the cycle arrives here, it means that dist_right<dist_left
 		else if (2 * dist_right < dist_left) // if the right distance (dist_right) is at least 2.0 times smaller than the left distance (dist_left), so i only need to turn to the left
@@ -89,8 +89,8 @@ void driveCallback(const sensor_msgs::LaserScan::ConstPtr &msg)
 			my_vel.angular.z = 1.0;
 		else // the two lateral distances are too similar, better to go forward while turning
 		{
-			my_vel.linear.x = 1.0;
-			my_vel.angular.z = 1.0;
+			my_vel.linear.x = 0.1;
+			my_vel.angular.z = 2.0;
 		}
 	}
 	else
