@@ -135,7 +135,7 @@ As you can see, using this command you are not able to see what `UI_node` node a
 __Possible Improvements and Personal Considerations__
 ----------------------
 
-There are several ways to implement a logic that makes the robot move, I decided to use almost the same logic of the previous assignment because it seems working well enough, the robot never crashes if the speed is low (i.e. within 4.0) but if I increase the speed too much it may crash or change direction. The reason could be that the three areas checked by the algorithm to control the movement (i.e. frontal, right and left) have blind spots on the front-left and front-right portions of the field of view, __BUT__ I noticed that if I run the project on a computer with native Ubuntu it generally works much better (I'm actually using Oracle Virtual Machine).
+There are several ways to implement a logic that makes the robot move, I decided to use almost the same logic of the previous assignment because it seems working well enough, the robot never crashes if the speed is low (i.e. within 4.0) but if I increase the speed too much it may crash or change direction. The reason could be that the three areas checked by the algorithm to control the movement (i.e. frontal, right and left) have blind spots on the front-left and front-right portions of the field of view, __BUT__ I noticed that if I run the project on a computer with native Ubuntu it generally works much better and the times the robot crashes are way rarer (I'm actually using Oracle Virtual Machine).
 
 
 
